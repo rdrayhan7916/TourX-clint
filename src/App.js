@@ -1,13 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
-import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Services from './Components/Services/Services';
-import Admin from './Dashboard/Admin/Admin';
-;
+import Admin from './Dashboard/Admin/Admin'
+
 
 function App() {
   return (
@@ -24,13 +24,15 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <PrivateRoute path="/dashboard">
+          <Route path="/dashboard">
             <Admin></Admin>
-          </PrivateRoute>
+          </Route>
           <Route path="/services">
             <Services></Services>
           </Route>
+
         </Switch>
+        <Footer></Footer>
       </BrowserRouter>
     </div>
   );
