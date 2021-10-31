@@ -1,4 +1,4 @@
-
+import initialixetion from "../Components/firebase/firebase.init";
 import {
     getAuth,
     signInWithPopup,
@@ -36,7 +36,7 @@ const useFirebase = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-                const uid = user.uid;
+
             } else {
                 // User is signed out
                 // ...

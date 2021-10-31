@@ -1,8 +1,8 @@
 import React from 'react';
-import useFirebase from '../../Hook/useFirebase';
+import useAuth from '../../Hook/useAuth';
 import './Login.css'
 const Login = () => {
-    const { handleGoogleLogin } = useFirebase()
+    const { handleGoogleLogin } = useAuth()
     return (
         <div className="align-middle mt-5">
             <div classNam="login-part  ">
