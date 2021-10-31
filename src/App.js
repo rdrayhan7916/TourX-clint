@@ -6,6 +6,7 @@ import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Services from './Components/Services/Services';
 import Admin from './Dashboard/Admin/Admin'
 import NotFound from './NotFound/NotFound';
@@ -26,15 +27,15 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Admin></Admin>
-          </Route>
+          </PrivateRoute>
           <Route path="/services">
             <Services></Services>
           </Route>
-          <Route path="/booking">
+          <PrivateRoute path="/booking">
             <Booking></Booking>
-          </Route>
+          </PrivateRoute>
           <Route path="*">
             <NotFound></NotFound>
           </Route>
