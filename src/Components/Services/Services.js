@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
     const [services, setServices] = useState([])
@@ -23,7 +24,7 @@ const Services = () => {
                             <h3>{service.title}</h3>
                             <h5><span className="text-danger">Price: </span>${service.price}</h5>
                             <h6><span className="text-danger">Time: </span>{service.time}</h6>
-                            <button className="btn btn-danger mb-1">BOOK NOW</button>
+                            <Link to="booking"><button className="btn btn-danger mb-1">BOOK NOW</button></Link>
                         </div>
                     ))
                 }

@@ -15,7 +15,7 @@ const MangeOrders = () => {
 
     const handleDelete = id => {
         console.log(id)
-        fetch(`http://localhost:5000/service/${id}`, {
+        fetch(`https://dry-woodland-13104.herokuapp.com/service/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
