@@ -4,13 +4,29 @@ import { useEffect } from 'react';
 
 const MangeOrders = () => {
     const [packages, setpackages] = useState([])
+    const [deletedCount, setDeleteCount] = useState(0)
 
     useEffect(() => {
         fetch('https://dry-woodland-13104.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setpackages(data))
 
-    }, [])
+    }, [deletedCount])
+
+    const handleDelete = id => {
+        console.log(id)
+        fetch(`http://localhost:5000/service/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                setDeleteCount(data.deletedCount)
+                console.log('delete')
+                if (data.deletedCount > 0) {
+                    alert('Deleted succsessfully')
+                }
+            })
+    }
     return (
         <div>
             <h1>Mange All Package</h1>
@@ -23,7 +39,7 @@ const MangeOrders = () => {
                             <h3>{service.title}</h3>
                             <h5><span className="text-danger">Price: </span>${service.price}</h5>
                             <h6><span className="text-danger">Time: </span>{service.time}</h6>
-                            <button className="btn btn-warning mb-1">Delete</button>
+                            <button onClick={() => handleDelete(service._id)} className="btn btn-warning mb-1">Delete</button>
                         </div>
                     ))
                 }

@@ -21,6 +21,7 @@ const AddService = () => {
                 <input className="mt-5" placeholder="title" {...register("title")} /><br />
                 <input className="mt-1" placeholder="price" {...register("price")} /><br />
                 <input className="mt-1" placeholder="img url"  {...register("img")} /><br />
+                <input className="mt-1" placeholder="time"  {...register("time")} /><br />
                 <input className="mt-1 btn btn-danger" type="submit" />
             </form>
         </div>
