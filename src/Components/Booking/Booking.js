@@ -2,9 +2,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const Booking = () => {
+    
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch("https://dry-woodland-13104.herokuapp.com/booking", {
+        fetch("https://boiling-shelf-71708.herokuapp.com/booking", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -15,6 +16,7 @@ const Booking = () => {
 
     };
     return (
+       
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input className="m-1 mt-5" placeholder="Name " {...register("name",)} />

@@ -7,7 +7,7 @@ const MangeOrders = () => {
     const [deletedCount, setDeleteCount] = useState(0)
 
     useEffect(() => {
-        fetch('https://dry-woodland-13104.herokuapp.com/service')
+        fetch('https://boiling-shelf-71708.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setpackages(data))
 
@@ -15,7 +15,7 @@ const MangeOrders = () => {
 
     const handleDelete = id => {
         console.log(id)
-        fetch(`https://dry-woodland-13104.herokuapp.com/service/${id}`, {
+        fetch(`https://boiling-shelf-71708.herokuapp.com/service/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
