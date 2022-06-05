@@ -5,6 +5,7 @@ import {
     GoogleAuthProvider,
     onAuthStateChanged,
     signOut,
+    OAuthProvider,
 } from "firebase/auth";
 
 import { useEffect, useState } from "react";
@@ -15,10 +16,7 @@ initialixetion()
 const useFirebase = () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
-
-
-    const [user, setUser] = useState({});
-    const [error, setError] = useState("");
+    const appleProvider = new OAuthProvider('apple.com');
 
     const handleGoogleLogin = () => {
         signInWithPopup(auth, provider)
@@ -31,6 +29,24 @@ const useFirebase = () => {
             .catch((error) => setError(error.message));
         console.log(error)
     };
+    const handleAppleLogin = () => {
+        signInWithPopup(auth, appleProvider)
+            .then((result) => {
+                setUser(result.user);
+
+                // console.log(result.user);
+                setError("");
+            })
+            .catch((error) => setError(error.message));
+        console.log(error)
+    };
+
+
+    const [user, setUser] = useState({});
+    const [error, setError] = useState("");
+
+
+
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -59,6 +75,7 @@ const useFirebase = () => {
         handleGoogleLogin,
         user,
         handleLogout,
+        handleAppleLogin
     };
 };
 
